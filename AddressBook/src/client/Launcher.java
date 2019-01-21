@@ -1,0 +1,27 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package client;
+
+/**
+ *
+ * @author sdist
+ */
+public class Launcher {
+
+    /**
+     * Genero hilos
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        int numClientes = 3;
+        for (int i = 0; i < numClientes; i++) {
+            System.out.println("Cliente "+i);
+            ClientThread clientThread = new ClientThread(i);
+            clientThread.start();
+        }
+    }
+    
+}
