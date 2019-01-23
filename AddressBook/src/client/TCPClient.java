@@ -29,6 +29,9 @@ public class TCPClient {
         catch (UnknownHostException e) {
 		System.out.println("Sock:"+e.getMessage()); 
 	}
+        catch (EOFException e) {
+                System.out.println("EOF:"+e.getMessage());
+    	}
         catch (IOException ex) {
             Logger.getLogger(TCPClient.class.getName()).log(Level.SEVERE, null, ex);
         }

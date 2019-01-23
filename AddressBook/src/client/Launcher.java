@@ -5,6 +5,12 @@
  */
 package client;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author sdist
@@ -16,12 +22,28 @@ public class Launcher {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int numClientes = 3;
-        for (int i = 0; i < numClientes; i++) {
-            System.out.println("Cliente "+i);
-            ClientThread clientThread = new ClientThread(i);
-            clientThread.start();
+        PrintWriter writer;
+        try {
+            int numClientes = 100;
+            int numSolicitudes = 2000;
+            String filename = "tiempos"+numClientes+".csv";
+            writer = new PrintWriter(new FileWriter(filename, true));
+            
+            writer.println("\n"+numSolicitudes+"");
+            writer.close();
+            System.out.println(""+numSolicitudes+",");
+            
+            for (int i = 0; i < numClientes; i++) {
+                System.out.println("Cliente "+i);
+                ClientThread clientThread = new ClientThread(i, numSolicitudes, filename);
+                clientThread.start();
+            }
+            //writer.print("2 "+numSolicitudes+",");
+
+        } catch (IOException ex) {
+            Logger.getLogger(Launcher.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
     
 }

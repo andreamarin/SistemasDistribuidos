@@ -5,33 +5,59 @@
  */
 package client;
 
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author sdist
  */
 public class ClientThread extends Thread{
     int idCliente;
+    int numSolicitudes;
+    String filename;
     
-    public ClientThread(int id){
+    public ClientThread(int id, int n, String file){
         this.idCliente = id;
+        this.numSolicitudes = n;
+        this.filename  = file;
     }
     
+    //@Overwrite
     @Override
     public void run(){
-        TCPClient client = new TCPClient();
-        int numSolicitudes = 5;
-        String res;
-        
-        for (int i = 0; i < numSolicitudes; i++) {
-            res = client.mandar(3);
-            System.out.println("Cliente "+idCliente+" solicitud "+i+" received: "+res);
-            if(res.equals("Error"))
-                break;
+        PrintWriter writer = null;
+        try {
+            writer = new PrintWriter(new FileWriter(filename, true));
+            
+            TCPClient client = new TCPClient();
+            String res;
+            long startTime = System.currentTimeMillis();
+            for (int i = 0; i < numSolicitudes; i++) {
+                res = client.mandar(1);
+                System.out.println("Cliente "+idCliente+" solicitud "+i+" received: "+res);
+                if(res.equals("Error"))
+                    break;
+            }   long spentTime = System.currentTimeMillis() - startTime;
+            res = client.mandar(-1);
+            System.out.println("Cilente " + idCliente + ": " + res);
+            System.out.println("Cliente "+idCliente+" "+spentTime);
+            writer.print(spentTime + ", ");
+            client.close();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ClientThread.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnsupportedEncodingException ex) {
+            Logger.getLogger(ClientThread.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ClientThread.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            writer.close();
         }
-        
-        client.mandar(-1);
-        client.close();
-        
     }
     
 }

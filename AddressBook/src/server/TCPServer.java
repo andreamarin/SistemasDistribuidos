@@ -29,7 +29,8 @@ public class TCPServer {
             ServerSocket listenSocket = new ServerSocket(serverPort);
             while(true) {
                     System.out.println("Waiting for clients..."); 
-                    Socket clientSocket = listenSocket.accept();  // Listens for a connection to be made to this socket and accepts it. The method blocks until a connection is made. 
+                    Socket clientSocket = listenSocket.accept();
+                    System.out.println("Aceptado");// Listens for a connection to be made to this socket and accepts it. The method blocks until a connection is made. 
                     Connection c = new Connection(clientSocket, ab);
                     c.start();
             }
