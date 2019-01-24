@@ -32,22 +32,36 @@ public class ClientThread extends Thread{
     @Override
     public void run(){
         PrintWriter writer = null;
+        long[] tiempos = new long[numSolicitudes];
+        long startTime, spentTime;
         try {
             writer = new PrintWriter(new FileWriter(filename, true));
             
             TCPClient client = new TCPClient();
             String res;
-            long startTime = System.currentTimeMillis();
             for (int i = 0; i < numSolicitudes; i++) {
+                startTime = System.currentTimeMillis();
                 res = client.mandar(1);
+                spentTime = System.currentTimeMillis() - startTime;
+                
                 System.out.println("Cliente "+idCliente+" solicitud "+i+" received: "+res);
                 if(res.equals("Error"))
                     break;
-            }   long spentTime = System.currentTimeMillis() - startTime;
+                
+                tiempos[i] = spentTime;
+            }   
+            
             res = client.mandar(-1);
             System.out.println("Cilente " + idCliente + ": " + res);
-            System.out.println("Cliente "+idCliente+" "+spentTime);
-            writer.print(spentTime + ", ");
+            
+            double desv = stdDev(tiempos);
+            double avg = prom(tiempos);
+            
+            writer.println(avg + ", "+desv+"");
+            
+            System.out.println("Avg: "+avg);
+            System.out.println("Desv: "+desv);
+            
             client.close();
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ClientThread.class.getName()).log(Level.SEVERE, null, ex);
@@ -58,6 +72,29 @@ public class ClientThread extends Thread{
         } finally {
             writer.close();
         }
+    }
+    
+    private double stdDev(long[] list){
+        double sum = 0.0;
+        double num = 0.0;
+
+        for (int i=0; i < list.length; i++)
+        sum+=list[i];
+
+        double mean = sum/list.length;
+        for (int i=0; i <list.length; i++)
+        num+=Math.pow((list[i] - mean),2);
+        return Math.sqrt(num/list.length);
+    }
+    
+    private double prom(long[] list){
+        double sum = 0.0;
+        
+        for (int i = 0; i < list.length; i++) {
+            sum += list[i];
+        }
+        
+        return sum/list.length;
     }
     
 }

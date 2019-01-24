@@ -24,14 +24,13 @@ public class Launcher {
     public static void main(String[] args) {
         PrintWriter writer;
         try {
-            int numClientes = 100;
+            int numClientes =200;
             int numSolicitudes = 2000;
             String filename = "tiempos"+numClientes+".csv";
             writer = new PrintWriter(new FileWriter(filename, true));
             
             writer.println("\n"+numSolicitudes+"");
             writer.close();
-            System.out.println(""+numSolicitudes+",");
             
             for (int i = 0; i < numClientes; i++) {
                 System.out.println("Cliente "+i);
