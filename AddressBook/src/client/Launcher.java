@@ -24,8 +24,8 @@ public class Launcher {
     public static void main(String[] args) {
         PrintWriter writer;
         try {
-            int numClientes =200;
-            int numSolicitudes = 2000;
+            int numClientes =30;
+            int numSolicitudes = 1000;
             String filename = "tiempos"+numClientes+".csv";
             writer = new PrintWriter(new FileWriter(filename, true));
             
