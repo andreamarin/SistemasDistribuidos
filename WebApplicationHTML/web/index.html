@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>Sistemas de Cotización de Seguros de Auto</h1>
+        Datos personales
+        <form name="form1" action="index.html">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Descripción</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Apellido paterno:</td>
+                        <td><input type="text" name="ap_paterno" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td>Apellido materno:</td>
+                        <td><input type="text" name="ap_materno" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td>Género</td>
+                        <td>
+                            <input type="radio" name="sexo" value="Hombre"/>Hombre
+                            <input type="radio" name="sexo" value="Mujer" />Mujer
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Región del país:</td>
+                        <td><select name="reg">
+                                <option>Norte</option>
+                                <option>Centro</option>
+                                <option>Sur</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>Comentarios adicionales</td>
+                        <td><textarea name="comment" rows="4" cols="20">
+                            </textarea></td>
+                    </tr>
+                    <tr>
+                        <td>Foto:</td>
+                        <td><img src="img.png" width="200" height="200" alt="img"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Tres países donde me gustaría vivir</td>
+                        <td><ol type="A">
+                                <li>Uruguay</li>
+                                <li>Turquía</li>
+                                <li>Marruecos</li>
+                            </ol>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mi sitio web favorito es:</td>
+                        <td><a href="https://orteil.dashnet.org/cookieclicker/">Galletitas</a></td>
+                    </tr>
+                    <tr>
+                        <td>Tiene todas las vacunas</td>
+                        <td><input type="checkbox" name="vacunas" value="OFF" /></td>
+                    </tr>
+                    <tr>
+                        <td><input type="reset" value="Limpiar" /></td>
+                        <td><input type="submit" value="Enviar" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>
