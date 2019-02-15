@@ -1,0 +1,36 @@
+<!-- Andrea Marín Alarcón
+	Luis Felipe Landa Lizarralde -->
+<xs:schema xmnls:xs="http://any.url.com/NoteSchema">
+	<xs:element name="nota" type="noteType"/>
+	
+	<xs:simpleType name="to_from">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([a-zA-Z])+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="prType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Alta"/>
+			<xs:enumeration value="Intermedia"/>
+			<xs:enumeration value="Baja"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="headingType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([a-zA-Z0-9])*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xsn:complexType name="noteType">
+		<xs:sequence>
+			<xs:element name="to" type="xs:to_from"/>
+			<xs:element name="from" type="xs:to_from"/>
+			<xs:element name="priority" type="xs:prType"/>
+			<xs:element name="date" type="xs:date"/>
+			<xs:element name="heading" type = "xs:headingType"/>
+			<xs:element name="body" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>
