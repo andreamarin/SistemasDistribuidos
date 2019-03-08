@@ -1,7 +1,7 @@
 <!-- Andrea Marín Alarcón
 	Luis Felipe Landa Lizarralde -->
 <xs:schema xmnls:xs="http://any.url.com/NoteSchema">
-	<xs:element name="nota" type="noteType"/>
+	<xs:element name="note" type="noteType"/>
 	
 	<xs:simpleType name="to_from">
 		<xs:restriction base="xs:string">

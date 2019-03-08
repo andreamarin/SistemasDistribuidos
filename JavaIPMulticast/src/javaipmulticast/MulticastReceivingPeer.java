@@ -18,7 +18,7 @@ import java.net.SocketException;
  */
 public class MulticastReceivingPeer {
     	public static void main(String args[]){ 
-  	 
+  	System.setProperty("java.net.preferIPv4Stack", "true");
 	MulticastSocket s =null;
    	 try {
                 InetAddress group = InetAddress.getByName("228.5.6.7"); // destination multicast group 
