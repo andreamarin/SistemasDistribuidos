@@ -47,7 +47,7 @@
                         <td><select name="edo">
                                 <option>CDMX</option>
                                 <option>Puebla</option>
-                                <option>Nuevo León</option>
+                                <option>Nuevo Leon</option>
                             </select></td>
                     </tr>
                     <tr>

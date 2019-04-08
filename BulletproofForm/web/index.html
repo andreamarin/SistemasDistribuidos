@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Bulletproof</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script src="functions.js"></script>
+        
+        
+        <form name = "myForm" action="followup.html" onsubmit="return validateForm()" method="post">
+                
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>First name:</td>
+                        <td><input type="text" name="fname" value="" onkeyup="verificaStr(this)"/></td>
+                    </tr>
+                    <tr>
+                        <td>Last name:</td>
+                        <td><input type="text" name="lname" value="" onkeyup="verificaStr(this)" /></td>
+                    </tr>
+                    <tr>
+                        <td>E-mail:</td>
+                        <td><input type="text" name="mail" value="" /></td>
+                    </tr>
+                    <tr>
+                        <td>Gender:</td>
+                        <td><input type="radio" name="gender" value="male" />Male<input type="radio" name="gender" value="female" />Female</td>
+                    </tr>
+                    <tr>
+                        <td>Country region</td>
+                        <td><select name="ddlRegion">
+                                <option>Norte</option>
+                                <option>Sur</option>
+                                <option>Centro</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td>All the vaccines?</td>
+                        <td><input type="checkbox" name="vaccines" value="ON" /></td>
+                    </tr>
+                    <tr>
+                        <td>Additional comments</td>
+                        <td><textarea name="comment" rows="4" cols="20">
+                            </textarea></td>
+                    </tr>
+                    <tr>
+                        <td><input type="reset" value="Reset" /></td>
+                        <td><input type="submit" value="Send" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        
+    </body>
+    
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>CinemaSuggestion</servlet-name>
+        <servlet-class>servlets.CinemaSuggestion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetSuggestion</servlet-name>
+        <servlet-class>servlets.GetSuggestion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MovieSuggestion</servlet-name>
+        <servlet-class>servlets.MovieSuggestion</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CinemaSuggestion</servlet-name>
+        <url-pattern>/CinemaSuggestion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetSuggestion</servlet-name>
+        <url-pattern>/GetSuggestion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MovieSuggestion</servlet-name>
+        <url-pattern>/MovieSuggestion</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

@@ -18,30 +18,29 @@
                 if(request.getParameter("nombre")!=null){
                     String nombre = request.getParameter("nombre");
                     out.println("<p> Estimado(a) Sr(a). "+nombre+"</p>"
-                            + "<input  type = \'hidden\' name = \'nombre\' value = "+nombre+" / >");
+                            + "<input  type = 'hidden' name = 'nombre' value = '"+nombre+"' / >");
                 }
+                
                 String genero = "Desconocido";
                 if(request.getParameter("gen")!=null){
                     genero = request.getParameter("gen");
-                    out.println("<p>Género: "+genero+"</p>");
-                }else{
-                    out.println("<p>Género: Desconocido</p>");
                 }
-                out.println("<input  type = \'hidden\' name = \'gen\' value = "+genero+" / >");
+                out.println("<p>Género: "+genero+"</p> <input  type = 'hidden' name = 'gen' value = '"+genero+"' / >");
                 
                 String edad = "Desconocida";
                 if(request.getParameter("edad")!=null){
                     edad = request.getParameter("edad");
                 }
                 out.println("<p>Edad: "+edad+"</p>");
-                out.println("<input  type = \'hidden\' name = \'edad\' value = "+edad+" / >");
+                out.println("<input  type = 'hidden' name = 'edad' value = '"+edad+"' / >");
                 
                 if(request.getParameter("edo")!=null){
                     String edo = request.getParameter("edo");
-                    out.println("<p>Estado: "+edo+"</p><input  type = \'hidden\' name = \'edo\' value = "+edo+" / >");
+                    out.println("<p>Estado: "+edo+"</p><input  type = 'hidden' name = 'edo' value = '"+edo+"' / >");
+                }
+               
             %>
             
-            <br>
             <p>Datos del auto: </p>
             <table border="1">
                 <thead>
