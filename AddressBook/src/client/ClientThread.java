@@ -83,7 +83,7 @@ public class ClientThread extends Thread{
 
         double mean = sum/list.length;
         for (int i=0; i <list.length; i++)
-        num+=Math.pow((list[i] - mean),2);
+            num+=Math.pow((list[i] - mean),2);
         return Math.sqrt(num/list.length);
     }
     
