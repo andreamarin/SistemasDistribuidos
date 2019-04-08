@@ -18,14 +18,14 @@ import java.net.SocketException;
  */
 public class MulticastSenderPeer {
     	public static void main(String args[]){ 
-  	 
+  	System.setProperty("java.net.preferIPv4Stack", "true");
 	MulticastSocket s =null;
    	 try {
                 
                 InetAddress group = InetAddress.getByName("228.5.6.7"); // destination multicast group 
 	    	s = new MulticastSocket(6789);
 	   	s.joinGroup(group); 
-                //s.setTimeToLive(10);
+                s.setTimeToLive(10);
                 System.out.println("Messages' TTL (Time-To-Live): "+ s.getTimeToLive());
                 String myMessage="Hello";
                 byte [] m = myMessage.getBytes();
